@@ -3,7 +3,7 @@ I put together a ghost install script and included supervisor so ghost starts on
 
 #### Prerequisites
 * Grab a domain name (or keep it on localhost if you like).
-* Boot up a **CLEAN** Ubuntu 14.04 64-bit machine.
+* Boot up a **CLEAN** Ubuntu 16.04 64-bit machine.
 
 >>> **WARNING! This script will overwrite/append current system configurations. Please ensure you're using a CLEAN install.**
 
