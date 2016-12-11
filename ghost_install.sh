@@ -50,12 +50,12 @@ chown -R ghost:ghost /var/www/ghost/
 cat >/etc/systemd/system/ghost.service << EOL
 # Place in /etc/systemd/system/ghost.service
 [Unit]
-Description=Ghost blog chrisebert.net  
+Description=Ghost Blog  
 After=network.target
 
 [Service]
 Type=simple  
-PIDFile=/run/ghost-chrisebert.net.pid  
+PIDFile=/run/ghostblog.pid  
 # This is the directory you installed Ghost to
 WorkingDirectory=/var/www/ghost/  
 User=ghost  
