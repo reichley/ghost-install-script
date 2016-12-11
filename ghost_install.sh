@@ -26,7 +26,7 @@ apt-get -qq update
 apt-get -qq dist-upgrade
 echo 
 echo "installing node.js and npm"
-curl -sL https://deb.nodesource.com/setup | sudo bash -
+curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
 apt-get install -qq nodejs
 npm install -g ghost --production
 #cd /usr/lib/node_modules/ghost/ # move this and next step to post-install
@@ -37,12 +37,12 @@ apt-get install -qq nginx
 echo
 echo "editing nginx default site and ghost config to allow ghost to proxy through port 80"
 echo
-`sed -i '24s/root/# &/' /etc/nginx/sites-enabled/default`
-`sed -i '25s/index/# &/' /etc/nginx/sites-enabled/default`
-`sed -i "28s/localhost/$ghosthost/g" /etc/nginx/sites-enabled/default`
-`sed -i '33s/try/# &/' /etc/nginx/sites-enabled/default`
+`sed -i '36s/root/# &/' /etc/nginx/sites-enabled/default`
+`sed -i '39s/index/# &/' /etc/nginx/sites-enabled/default`
+`sed -i "41s/server_name\ _/server_name\ $ghosthost/g" /etc/nginx/sites-enabled/default`
+`sed -i '46s/try/# &/' /etc/nginx/sites-enabled/default`
 proxyvar=$(echo "proxy_set_header X-Real-IP \$remote_addr;\nproxy_set_header Host \$http_host;\nproxy_pass http://127.0.0.1:2368;")
-`sed -i "/\#\ include\ \/etc\/nginx\/naxsi\.rules/a $proxyvar" /etc/nginx/sites-enabled/default`
+`sed -i "47s/}/$proxyvar\n} &/" /etc/nginx/sites-enabled/default`
 echo "installing supervisor to keep ghost up and running..."
 apt-get install -qq supervisor
 cat >/etc/supervisor/conf.d/ghost.conf << EOL
