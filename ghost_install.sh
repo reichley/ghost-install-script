@@ -26,7 +26,7 @@ apt-get -qq update
 apt-get -qq dist-upgrade
 echo 
 echo "installing node.js and npm"
-apt-get install -qq unzip curl nodejs-legacy npm
+apt-get install -qq unzip wget nodejs-legacy npm
 mkdir -p /var/www/; cd /var/www/; wget https://ghost.org/zip/ghost-latest.zip
 sleep 1
 unzip -d ghost ghost-latest.zip; cd ghost/
