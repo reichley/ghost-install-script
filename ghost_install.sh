@@ -5,7 +5,7 @@
 # Please remember to "chmod u+x script" the script to make it executable.
 
 
-echo "This install script will install ghost on your *CLEAN* Ubuntu 14.04 64-bit server."
+echo "This install script will install ghost on your *CLEAN* Ubuntu 16.04.1 64-bit server."
 echo "(It will also boot ghost on start.)"
 echo
 echo "Remember to navigate to http://DOMAIN/ghost/setup to create an account and get started."
@@ -25,6 +25,7 @@ echo "updating system..."
 apt-get -qq update
 apt-get -qq dist-upgrade
 echo 
+# install node.js and npm
 echo "installing node.js and npm"
 apt-get -qq install unzip wget nodejs-legacy npm
 mkdir -p /var/www/; cd /var/www/; wget https://ghost.org/zip/ghost-latest.zip
@@ -33,6 +34,7 @@ unzip -d ghost ghost-latest.zip; cd ghost/
 npm install --production
 cp config.example.js config.js  
 echo 
+# install nginx and edit nginx config file to setup reverse proxy
 echo "installing nginx..."
 apt-get -qq install nginx
 echo
