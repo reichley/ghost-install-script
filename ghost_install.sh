@@ -77,6 +77,7 @@ service nginx restart; service ghost start; systemctl enable ghost.service
 sleep 2
 rm -f /var/www/ghost-latest.zip
 `sed -i "14s/my-ghost-blog.com/$ghosthost/g" /var/www/ghost/config.js`
+`sed -i '36s/127.0.0.1/0.0.0.0/g' /var/www/ghost/config.js`
 echo
 echo "installation complete!"
 echo
