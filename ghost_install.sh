@@ -1,6 +1,6 @@
 #!/bin/bash
 ###############################################################
-### Ghost Install Script by: Nick Reichley nick@reichley.co ###
+### Ghost Install Script by: Nick Reichley Github = reichley ##
 ###############################################################
 # Please remember to "chmod u+x script" the script to make it executable.
 
